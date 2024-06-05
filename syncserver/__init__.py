@@ -197,6 +197,9 @@ def import_settings_from_environment_variables(settings, environ=None):
         ("SYNCSERVER_DEBUG_ENABLED",
          "syncserver.debug_enabled",
          str_to_bool),
+        ("TOKENSERVER_NODE_URL", "tokenserver.node_url", str),
+        ("TOKENSERVER_SQLURI", "tokenserver.sqluri", str),
+        ("ENDPOINTS_SYNC", "endpoints.sync-1.5", str),
     )
     if "SYNCSERVER_SECRET_FILE" in environ:
         settings["syncserver.secret"] = \
