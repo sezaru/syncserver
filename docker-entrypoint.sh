@@ -5,6 +5,7 @@ case "$1" in
     server)
         export SYNCSERVER_SQLURI="${SYNCSERVER_SQLURI:-sqlite:///tmp/syncserver.db}"
         exec gunicorn \
+            --paste /data/syncserver.ini \
             --bind ${HOST-0.0.0.0}:${PORT-5000} \
             --forwarded-allow-ips="${SYNCSERVER_FORWARDED_ALLOW_IPS:-127.0.0.1,172.17.0.1}" \
             syncserver.wsgi_app
